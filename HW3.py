@@ -52,7 +52,18 @@ def all_prerequisites(course_dict,course):
      return sorted(result)
 
 ## problem 5 - roll(lst,n,count)– 10% 
-
+def roll(lst,n,count):
+     rlist = lst
+     m = len(lst)
+     if count > 0:
+          for x in range(0, count):
+               y = rlist.pop(m - 1)
+               rlist.insert(m - n, y)
+     else:
+          for x in range(count, 0):
+               y = rlist.pop(m - n)
+               rlist.append(y)
+     return rlist
 
 ## problem 6 - split_at_parenthesis(str_input)– 14% 
 

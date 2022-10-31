@@ -44,6 +44,7 @@ class HW3SampleTests(unittest.TestCase):
             "CptS475" : "CptS122",
             "CptS423" : "CptS322"
         }
+        self.rollinput = list("SEND ELPH")
     def sort_values(self,d):
         return dict(map(lambda t: (t[0],list(sorted(t[1]))), d.items()))
     
@@ -81,8 +82,8 @@ class HW3SampleTests(unittest.TestCase):
             
     #--- Problem 5 ----------------------------------
     def test_roll(self):
-        pass
-        # Provide your own test here. 
+        output = list("SEND HELP")
+        self.assertListEqual( roll(self.rollinput,4,1),output )
 
     #--- Problem 6----------------------------------
     def test_split_at_parenthesis(self):
