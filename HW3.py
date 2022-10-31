@@ -21,7 +21,15 @@ def create_lang_dict (courses):
      return languages
 
 ## problem 2 - find_courses(lang_dict,language)– 10%
+def isLang(item, language):
+     if language in item:
+          return True
+     else:
+          return False
 
+def find_courses(lang_dict,language):
+     results = dict(filter(lambda item: isLang(item[1], language), lang_dict.items()))
+     return results.keys()
 
 ## problem 3 - get_by_level(lang_dict,level)– 15%
 

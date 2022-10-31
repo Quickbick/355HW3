@@ -29,7 +29,6 @@ class HW3SampleTests(unittest.TestCase):
         return dict(map(lambda t: (t[0],list(sorted(t[1]))), d.items()))
     
     #--- Problem 1----------------------------------
-    
     def test_create_lang_dict(self):
         output = {'C': ['CptS121', 'CptS360', 'CptS411'],
                  'E-': ['CptS121'],
@@ -43,14 +42,13 @@ class HW3SampleTests(unittest.TestCase):
          'PostScript': ['CptS355'],
           'Suffering': ['CptS360'],                 
                   'R': ['CptS475'],}
-
         self.assertDictEqual(self.sort_values(create_lang_dict(self.prog_languages)),self.sort_values(output))
     
     #--- Problem 2----------------------------------
     def test_find_courses(self):
-        pass
-        # Provide your own test here. Create your own input dictionary for this test .
-        # You can re-use the data dictionary you created for problem-1.
+        output = sorted(['CptS360'])
+        self.assertListEqual(sorted(find_courses(self.prog_languages,'Suffering')),output)
+
 
     #--- Problem 3 ----------------------------------
     def test_get_by_level(self):
