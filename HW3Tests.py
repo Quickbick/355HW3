@@ -25,6 +25,25 @@ class HW3SampleTests(unittest.TestCase):
             "CptS475" : ["Python", "R"],
             "CptS423" : []
         }
+        self.prerequisites = {
+            "CptS121" : "Ability to Google",
+            "CptS122" : "CptS121",
+            "CptS132" : "CptS131",
+            "CptS223" : "CptS122",
+            "CptS233" : "CptS132",
+            "CptS260" : "CptS121",
+            "CptS317" : "CptS223",
+            "CptS321" : "CptS223",
+            "CptS322" : "CptS223",
+            "CptS355" : "CptS223",
+            "CptS360" : "CptS317",
+            "CptS370" : "CptS233",
+            "CptS315" : "CptS233",
+            "CptS460" : "CptS360",
+            "CptS451" : "CptS223",
+            "CptS475" : "CptS122",
+            "CptS423" : "CptS322"
+        }
     def sort_values(self,d):
         return dict(map(lambda t: (t[0],list(sorted(t[1]))), d.items()))
     
@@ -57,8 +76,8 @@ class HW3SampleTests(unittest.TestCase):
 
     #--- Problem 4----------------------------------
     def test_all_prerequisites(self):
-        pass
-        # Provide your own test here. Create your own input dictionary for this test 
+        output = sorted(['Ability to Google', 'CptS121', 'CptS122', 'CptS223', 'CptS317'])
+        self.assertListEqual(all_prerequisites(self.prerequisites,'CptS360'),output) 
             
     #--- Problem 5 ----------------------------------
     def test_roll(self):

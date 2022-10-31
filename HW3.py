@@ -43,7 +43,13 @@ def get_by_level(lang_dict,level):
      return reduce(lambda x, y: x + y, results.values())       
 
 ## problem 4 - all_prerequisites(course_dict,course)– 15%
-
+def all_prerequisites(course_dict,course):
+     result = []
+     currrentCourse = course
+     while (currrentCourse in course_dict.keys()):
+          result.append(course_dict[currrentCourse])
+          currrentCourse = course_dict[currrentCourse]
+     return sorted(result)
 
 ## problem 5 - roll(lst,n,count)– 10% 
 
