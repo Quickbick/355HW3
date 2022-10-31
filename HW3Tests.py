@@ -45,6 +45,7 @@ class HW3SampleTests(unittest.TestCase):
             "CptS423" : "CptS322"
         }
         self.rollinput = list("SEND ELPH")
+        self.parInput = "I(hate(THIS))"
     def sort_values(self,d):
         return dict(map(lambda t: (t[0],list(sorted(t[1]))), d.items()))
     
@@ -87,8 +88,8 @@ class HW3SampleTests(unittest.TestCase):
 
     #--- Problem 6----------------------------------
     def test_split_at_parenthesis(self):
-        pass
-        # Provide your own test here.  
+        output = ['I', ['h', 'a', 't', 'e', ['T', 'H', 'I', 'S']]]
+        self.assertListEqual(split_at_parenthesis(self.parInput),output ) 
 
     #--- Problem 7----------------------------------
     def test_state_machine(self):

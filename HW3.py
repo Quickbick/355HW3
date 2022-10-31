@@ -66,6 +66,22 @@ def roll(lst,n,count):
      return rlist
 
 ## problem 6 - split_at_parenthesis(str_input)– 14% 
+def splitHelper(iterator):
+     result = []
+     temp = next(iterator, -1)
+     while (temp != -1):
+          if (temp == '('):
+               result.append(splitHelper(iterator))
+          elif (temp == ')'):
+               return result
+          else:
+               result.append(temp)
+          temp = next(iterator, -1)
+     return result
+
+def split_at_parenthesis(str_input):
+     iterat = iter(str_input)
+     return splitHelper(iterat)
 
 
 ## problem 7 - state_machine – 18% 
