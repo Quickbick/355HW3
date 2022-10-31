@@ -52,9 +52,8 @@ class HW3SampleTests(unittest.TestCase):
 
     #--- Problem 3 ----------------------------------
     def test_get_by_level(self):
-        pass
-        # Provide your own test here. Create your own input dictionary for this test .
-        # You can re-use the data dictionary you created for problem-1.
+        output = sorted(['C', 'C++', 'E-', 'E++', 'Java', 'Java'])
+        self.assertListEqual(sorted(get_by_level(self.prog_languages,1)),output)
 
     #--- Problem 4----------------------------------
     def test_all_prerequisites(self):

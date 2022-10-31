@@ -32,7 +32,15 @@ def find_courses(lang_dict,language):
      return results.keys()
 
 ## problem 3 - get_by_level(lang_dict,level)– 15%
+def isLevel(item, level):
+     if str(item)[4] == str(level):
+          return True
+     else:
+          return False
 
+def get_by_level(lang_dict,level):
+     results = dict(filter(lambda item: isLevel(item[0], level), lang_dict.items()))
+     return reduce(lambda x, y: x + y, results.values())       
 
 ## problem 4 - all_prerequisites(course_dict,course)– 15%
 
