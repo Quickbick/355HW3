@@ -46,6 +46,9 @@ class HW3SampleTests(unittest.TestCase):
         }
         self.rollinput = list("SEND ELPH")
         self.parInput = "I(hate(THIS))"
+        self.machine1 = {'S1':{'0':('S2','0'), '1':('S2','1')},
+                         'S2':{'0':('S1','-'), '1':('S1','+')}}
+        self.input1 = '00001'
     def sort_values(self,d):
         return dict(map(lambda t: (t[0],list(sorted(t[1]))), d.items()))
     
@@ -93,8 +96,15 @@ class HW3SampleTests(unittest.TestCase):
 
     #--- Problem 7----------------------------------
     def test_state_machine(self):
-        pass
-        # Provide your own test here. Initialize the iterator with your own input.
+        out = []
+        program = state_machine(self.machine1,iter(self.input1), ('S1',None))
+        self.assertEqual(program.__next__(), ('S1', None))  # skip over first output
+        for t in program:  
+            out.append(t)
+        state_output = [('S2', '0'), ('S1', '-'), ('S2', '0'), ('S1', '-'), ('S2', '1')]
+        str_output = "0-0-1"
+        self.assertListEqual(out,state_output)
+        self.assertEqual(''.join(list(map(lambda t: t[1],out))),str_output)
     
 if __name__ == '__main__':
     unittest.main()
