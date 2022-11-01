@@ -85,3 +85,23 @@ def split_at_parenthesis(str_input):
 
 
 ## problem 7 - state_machine – 18% 
+class state_machine:
+     def __init__(self, rulesDict, inpStr, start):
+          self.start = start
+          self.state = start[0]
+          self.rules = rulesDict
+          self.inp = inpStr
+          self.it = iter(self.inp)
+          self.first = True
+     def __iter__(self):
+          return self
+     def __next__(self):
+          if (self.first == True):
+               self.first = False
+               return self.start
+          elif len(self.rules[self.state]) == 0:
+               raise StopIteration
+          else:
+               result = self.rules[self.state][next(self.it)]
+               self.state = result[0]
+               return result
